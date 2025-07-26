@@ -22,8 +22,15 @@ export default {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: {
+					DEFAULT: 'hsl(var(--background))',
+					secondary: 'hsl(var(--background-secondary))',
+				},
 				foreground: 'hsl(var(--foreground))',
+				product: {
+					bg: 'hsl(var(--product-bg))',
+					hover: 'hsl(var(--product-hover))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +69,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-button': 'var(--gradient-button)',
+			},
+			boxShadow: {
+				'subtle': 'var(--shadow-subtle)',
+				'card': 'var(--shadow-card)',
+				'elegant': 'var(--shadow-elegant)',
+			},
+			transitionTimingFunction: {
+				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'bounce': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

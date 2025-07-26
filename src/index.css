@@ -8,26 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Main color palette - minimalist black & white-grey theme */
+    --background: 0 0% 98%;
+    --background-secondary: 0 0% 95%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 8%;
+    
+    /* Custom clothing store colors */
+    --product-bg: 0 0% 96%;
+    --product-hover: 0 0% 94%;
+    --button-hover: 0 0% 12%;
+    
+    /* Gradients for modern appeal */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 94%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 97%));
+    --gradient-button: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
+    
+    /* Shadows for depth */
+    --shadow-subtle: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+    --shadow-elegant: 0 8px 32px -8px hsl(0 0% 0% / 0.16);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -56,26 +77,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode maintains the same clean aesthetic */
+    --background: 0 0% 8%;
+    --background-secondary: 0 0% 12%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 95%;
+    
+    --product-bg: 0 0% 12%;
+    --product-hover: 0 0% 16%;
+    --button-hover: 0 0% 90%;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 14%));
+    --gradient-button: linear-gradient(135deg, hsl(0 0% 95%), hsl(0 0% 85%));
+    
+    --shadow-subtle: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-elegant: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
