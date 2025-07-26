@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold mb-2">NOIR</h3>
+              <h3 className="text-2xl font-bold mb-2">WOLVEN</h3>
               <p className="text-background/80 text-sm leading-relaxed">
-                Premium black apparel for the modern minimalist. Crafted with care, designed for life.
+                Premium black essentials for the modern urban dweller. Crafted with precision, designed for style.
               </p>
             </div>
             
@@ -91,7 +91,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/60 text-sm">
-            © 2024 NOIR. All rights reserved.
+            © 2024 WOLVEN. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-background/60 hover:text-background transition-colors">

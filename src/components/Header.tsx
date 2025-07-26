@@ -16,10 +16,10 @@ const Header = ({ cartItems, onCartClick }: HeaderProps) => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <h1 className="text-2xl font-bold text-foreground tracking-tight">
-            NOIR
+            WOLVEN
           </h1>
           <span className="text-sm text-muted-foreground hidden sm:block">
-            Premium Black Apparel
+            Premium Black Essentials
           </span>
         </div>
 
