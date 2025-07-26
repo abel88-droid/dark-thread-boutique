@@ -6,6 +6,7 @@ import Cart, { CartItem } from "@/components/Cart";
 import Footer from "@/components/Footer";
 import { Product } from "@/components/ProductCard";
 import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -82,6 +83,8 @@ const Index = () => {
       >
         <div />
       </Cart>
+      
+      <Toaster />
     </div>
   );
 };
