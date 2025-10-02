@@ -132,6 +132,25 @@ const Header = ({ cartItems, onCartClick }: HeaderProps) => {
             <a href="#about" className="text-foreground hover:text-foreground/80 transition-colors font-medium">
               About
             </a>
+            {user ? (
+              <Button 
+                variant="ghost" 
+                onClick={handleLogout}
+                className="justify-start"
+              >
+                <LogOut className="h-5 w-5 mr-2" />
+                Logout
+              </Button>
+            ) : (
+              <Button 
+                variant="ghost" 
+                onClick={handleAuthClick}
+                className="justify-start"
+              >
+                <User className="h-5 w-5 mr-2" />
+                Login
+              </Button>
+            )}
           </nav>
         </div>
       )}
