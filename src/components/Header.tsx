@@ -1,6 +1,10 @@
-import { ShoppingCart, Menu, User } from "lucide-react";
+import { ShoppingCart, Menu, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import type { User as SupabaseUser } from "@supabase/supabase-js";
 
 interface HeaderProps {
   cartItems: number;
@@ -9,6 +13,30 @@ interface HeaderProps {
 
 const Header = ({ cartItems, onCartClick }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    toast.success("Logged out successfully");
+    navigate("/auth");
+  };
+
+  const handleAuthClick = () => {
+    navigate("/auth");
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border shadow-subtle">
@@ -41,9 +69,27 @@ const Header = ({ cartItems, onCartClick }: HeaderProps) => {
 
         {/* Right side actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="hidden sm:flex">
-            <User className="h-5 w-5" />
-          </Button>
+          {user ? (
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={handleLogout}
+              className="hidden sm:flex"
+              title="Logout"
+            >
+              <LogOut className="h-5 w-5" />
+            </Button>
+          ) : (
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={handleAuthClick}
+              className="hidden sm:flex"
+              title="Login"
+            >
+              <User className="h-5 w-5" />
+            </Button>
+          )}
           
           <Button 
             variant="ghost" 

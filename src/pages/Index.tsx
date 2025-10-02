@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
@@ -9,9 +11,37 @@ import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check authentication status
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        navigate("/auth");
+      }
+      setIsLoading(false);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      if (!session) {
+        navigate("/auth");
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   const addToCart = (product: Product) => {
     setCartItems(current => {
